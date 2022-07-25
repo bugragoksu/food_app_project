@@ -2,9 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:food_app_project/domain/food/entity/food.dart';
 import 'package:food_app_project/domain/food/food_repository.dart';
+import 'package:injectable/injectable.dart';
 
 part 'food_state.dart';
 
+@injectable
 class FoodCubit extends Cubit<FoodState> {
   FoodCubit(this._foodRepository) : super(const FoodState.initial());
 
