@@ -1,0 +1,22 @@
+{
+    "isError": false,
+    "errorMessage": null,
+    "results": [
+        {
+            "id": 1,
+            "imageUrl": "image_path",
+            "title": "title",
+            "category": "category",
+            "price": 29.50,
+            "currency": "₺"
+        },
+        {
+            "id": 2,
+            "imageUrl": "image_path",
+            "title": "title",
+            "category": "category",
+            "price": 29.50,
+            "currency": "₺"
+        }
+    ]
+}

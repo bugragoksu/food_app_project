@@ -1,0 +1,16 @@
+{
+    "isError": false,
+    "errorMessage": null,
+    "results": [
+        {
+            "id": 1,
+            "imageUrl": "image_path",
+            "name": "name"
+        },
+        {
+            "id": 2,
+            "imageUrl": "image_path",
+            "name": "name"
+        }
+    ]
+}
