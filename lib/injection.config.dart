@@ -8,7 +8,8 @@ import 'package:dio/dio.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'infrastructure/core/service/network_service.dart'
+import 'infrastructure/core/service/network_service.dart' as _i5;
+import 'infrastructure/food/service/food_service.dart'
     as _i4; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
@@ -18,7 +19,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final dioModule = _$DioModule();
   gh.factory<_i3.Dio>(() => dioModule.dio);
+  gh.factory<_i4.FoodService>(() => _i4.FoodServiceImpl(get<_i3.Dio>()));
   return get;
 }
 
-class _$DioModule extends _i4.DioModule {}
+class _$DioModule extends _i5.DioModule {}

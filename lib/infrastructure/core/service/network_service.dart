@@ -11,7 +11,7 @@ abstract class NetworkService {
 abstract class DioModule {
   Dio get dio => Dio(
         BaseOptions(
-          baseUrl: 'A_FOOD_API_URL',
+          baseUrl: 'https://www.A_FOOD_API_URL/',
           queryParameters: {
             'api_key': 'API_KEY',
           },
