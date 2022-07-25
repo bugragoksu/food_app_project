@@ -4,13 +4,28 @@
     "results": [
         {
             "id": 1,
-            "imageUrl": "image_path",
-            "name": "name"
+            "imageUrl": "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg",
+            "name": "Pizza"
         },
         {
             "id": 2,
-            "imageUrl": "image_path",
-            "name": "name"
+            "imageUrl": "https://cdn.pixabay.com/photo/2016/03/26/23/19/hamburger-1281855_960_720.jpg",
+            "name": "Hamburger"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://cdn.pixabay.com/photo/2022/06/07/21/00/chicken-7249273__340.jpg",
+            "name": "Chicken"
+        }, 
+        {
+            "id": 2,
+            "imageUrl": "https://cdn.pixabay.com/photo/2014/05/05/19/52/charcuterie-338498__340.jpg",
+            "name": "Meat"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://cdn.pixabay.com/photo/2022/05/20/08/55/pasta-7209002__340.jpg",
+            "name": "Salad"
         }
     ]
 }
