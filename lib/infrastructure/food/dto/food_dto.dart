@@ -1,3 +1,4 @@
+import 'package:food_app_project/domain/food/entity/food.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'food_dto.g.dart';
@@ -17,6 +18,14 @@ class FoodDTO {
   final String title;
   final double price;
   final String currency;
+
+  Food get toFood => Food(
+        id: id,
+        imageUrl: imageUrl,
+        title: title,
+        price: price,
+        currency: currency,
+      );
 
   static const fromJsonFactory = _$FoodDTOFromJson;
 }
