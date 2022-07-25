@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app_project/domain/food/food_repository.dart';
 import 'package:food_app_project/injection.dart';
 
 Future<void> main() async {
@@ -32,6 +33,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    getIt.get<FoodRepository>().getCategories().then(
+          (value) => value.fold(
+            (error) => print(error.message),
+            (data) => print(data.length),
+          ),
+        );
+  }
 
   void _incrementCounter() {
     setState(() {

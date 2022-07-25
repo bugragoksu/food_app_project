@@ -24,10 +24,10 @@ class FoodServiceImpl extends FoodService {
     final String response = await rootBundle.loadString('assets/categories.json');
     final data = await json.decode(response);
     return Response(
+      data: data,
       statusCode: 200,
       requestOptions: RequestOptions(
         path: 'categories/',
-        data: data,
       ),
     );
   }
@@ -40,10 +40,10 @@ class FoodServiceImpl extends FoodService {
     final String response = await rootBundle.loadString('assets/foods.json');
     final data = await json.decode(response);
     return Response(
+      data: data,
       statusCode: 200,
       requestOptions: RequestOptions(
         path: 'foods/$categoryId',
-        data: data,
       ),
     );
   }
