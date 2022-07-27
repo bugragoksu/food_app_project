@@ -10,20 +10,10 @@
         {
             "id": 2,
             "imageUrl": "https://cdn.pixabay.com/photo/2016/03/26/23/19/hamburger-1281855_960_720.jpg",
-            "name": "Hamburger"
+            "name": "Burger"
         },
         {
-            "id": 2,
-            "imageUrl": "https://cdn.pixabay.com/photo/2022/06/07/21/00/chicken-7249273__340.jpg",
-            "name": "Chicken"
-        }, 
-        {
-            "id": 2,
-            "imageUrl": "https://cdn.pixabay.com/photo/2014/05/05/19/52/charcuterie-338498__340.jpg",
-            "name": "Meat"
-        },
-        {
-            "id": 2,
+            "id": 3,
             "imageUrl": "https://cdn.pixabay.com/photo/2022/05/20/08/55/pasta-7209002__340.jpg",
             "name": "Salad"
         }

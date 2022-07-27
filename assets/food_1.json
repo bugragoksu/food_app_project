@@ -1,0 +1,28 @@
+{
+    "isError": false,
+    "errorMessage": null,
+    "results": [
+        {
+            "id": 1,
+            "imageUrl": "https://cdn.pixabay.com/photo/2017/06/27/08/41/pizza-2446700_1280.jpg",
+            "title": "Margherita",
+            "price": 50.99,
+            "currency": "₺"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://cdn.pixabay.com/photo/2016/10/12/06/57/pizza-1733701_1280.jpg",
+            "title": "Pesto Pizza",
+            "price": 45.50,
+            "currency": "₺"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://cdn.pixabay.com/photo/2021/04/06/14/38/pizza-6156566__340.jpg",
+            "title": "Chicken Pizza",
+            "price": 55.75,
+            "currency": "₺"
+        }
+
+    ]
+}

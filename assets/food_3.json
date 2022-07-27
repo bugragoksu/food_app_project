@@ -1,0 +1,28 @@
+{
+    "isError": false,
+    "errorMessage": null,
+    "results": [
+        {
+            "id": 1,
+            "imageUrl": "https://cdn.pixabay.com/photo/2021/02/06/15/11/caesar-5988435__340.jpg",
+            "title": "Sezar Salad",
+            "price": 35.99,
+            "currency": "₺"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://cdn.pixabay.com/photo/2014/01/17/08/56/caesar-246818__340.jpg",
+            "title": "Chicken Salad",
+            "price": 45.50,
+            "currency": "₺"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://cdn.pixabay.com/photo/2013/07/26/04/00/salad-167365__480.jpg",
+            "title": "Balsamic Salad",
+            "price": 40.75,
+            "currency": "₺"
+        }
+
+    ]
+}

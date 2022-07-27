@@ -1,0 +1,28 @@
+{
+    "isError": false,
+    "errorMessage": null,
+    "results": [
+        {
+            "id": 1,
+            "imageUrl": "https://cdn.pixabay.com/photo/2018/05/30/19/18/burger-3442227__480.jpg",
+            "title": "Basic Burger",
+            "price": 50.99,
+            "currency": "₺"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://cdn.pixabay.com/photo/2019/04/24/12/11/burger-4152013__480.jpg",
+            "title": "Cheeseburger",
+            "price": 45.50,
+            "currency": "₺"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://cdn.pixabay.com/photo/2022/07/15/18/12/mushroom-burger-7323675__480.jpg",
+            "title": "Mushroom Burger",
+            "price": 55.75,
+            "currency": "₺"
+        }
+
+    ]
+}
