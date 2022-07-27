@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_app_project/domain/food/entity/basket_item.dart';
 import 'package:food_app_project/domain/food/entity/category.dart';
 import 'package:food_app_project/domain/food/entity/food.dart';
+import 'package:food_app_project/injection.dart';
+import 'package:food_app_project/presentation/pages/food/list/cubit/food_cubit.dart';
 import 'package:food_app_project/presentation/pages/food/list/food_list_screen.dart';
 
 enum CardListMode { foodList, categoryList }
@@ -48,7 +52,15 @@ class CardList extends StatelessWidget {
             imageUrl: model[index].imageUrl,
             title: model[index].title,
             price: model[index].price.toString() + model[index].currency,
-            onTap: () {},
+            onTap: () {
+              BlocProvider.of<FoodCubit>(context).addBasket(item: BasketItem(food: model[index]));
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Item added to basket.'),
+                  duration: Duration(seconds: 1),
+                ),
+              );
+            },
           );
         }
       },

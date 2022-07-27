@@ -17,9 +17,11 @@ class FoodCubit extends Cubit<FoodState> {
     emit(state.copyWith(status: FoodStatus.loading));
     final result = await _foodRepository.getFoods(categoryId: categoryId);
     result.fold(
-      (error) => state.copyWith(
-        status: FoodStatus.failure,
-        errorMessage: error.message,
+      (error) => emit(
+        state.copyWith(
+          status: FoodStatus.failure,
+          errorMessage: error.message,
+        ),
       ),
       (data) => emit(
         state.copyWith(
@@ -28,13 +30,19 @@ class FoodCubit extends Cubit<FoodState> {
         ),
       ),
     );
+  }
 
-    void addBasket({required BasketItem item}) {
+  void addBasket({required BasketItem item}) {
+    try {
+      final itemInBasket = state.basket.firstWhere((element) => element == item);
+      itemInBasket.count++;
+      return emit(state.copyWith(basket: [itemInBasket, ...state.basket]));
+    } catch (e) {
       return emit(state.copyWith(basket: [item, ...state.basket]));
     }
+  }
 
-    void clearBasket() {
-      return emit(state.copyWith(basket: []));
-    }
+  void clearBasket() {
+    return emit(state.copyWith(basket: []));
   }
 }

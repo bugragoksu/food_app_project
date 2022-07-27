@@ -31,14 +31,24 @@ class _FoodListScreenState extends State<FoodListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.categoryName),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: BlocProvider.value(
-          value: _foodCubit,
+    return BlocProvider.value(
+      value: _foodCubit,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.categoryName),
+        ),
+        floatingActionButton: BlocBuilder<FoodCubit, FoodState>(
+          builder: (context, state) {
+            return FloatingActionButton(
+              onPressed: () {
+                print("Basket:" + state.basket.length.toString());
+              },
+              child: const Icon(Icons.shopping_basket_sharp),
+            );
+          },
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: BlocBuilder<FoodCubit, FoodState>(
             builder: (context, state) {
               if (state.status == FoodStatus.loading) {
