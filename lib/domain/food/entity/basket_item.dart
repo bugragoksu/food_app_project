@@ -5,7 +5,7 @@ class BasketItem extends Equatable {
   BasketItem({required this.food});
 
   final Food food;
-  var count = 0;
+  var count = 1;
 
   @override
   List<Object?> get props => [food, count];
