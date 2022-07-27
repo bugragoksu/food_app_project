@@ -1,12 +1,12 @@
 part of 'food_cubit.dart';
 
-enum CategoryStatus { initial, success, failure, loading }
+enum FoodStatus { initial, success, failure, loading }
 
 class FoodState extends Equatable {
   const FoodState._({
     this.foods = const [],
     this.basket = const [],
-    this.status = CategoryStatus.initial,
+    this.status = FoodStatus.initial,
     this.errorMessage,
   });
 
@@ -14,13 +14,13 @@ class FoodState extends Equatable {
 
   final List<Food>? foods;
   final List<Food> basket;
-  final CategoryStatus status;
+  final FoodStatus status;
   final String? errorMessage;
 
   FoodState copyWith({
     List<Food>? foods,
     List<Food> basket = const [],
-    CategoryStatus? status,
+    FoodStatus? status,
     String? errorMessage,
   }) =>
       FoodState._(

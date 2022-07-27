@@ -13,16 +13,16 @@ class FoodCubit extends Cubit<FoodState> {
   final FoodRepository _foodRepository;
 
   Future<void> getFoods({required int categoryId}) async {
-    emit(state.copyWith(status: CategoryStatus.loading));
+    emit(state.copyWith(status: FoodStatus.loading));
     final result = await _foodRepository.getFoods(categoryId: categoryId);
     result.fold(
       (error) => state.copyWith(
-        status: CategoryStatus.failure,
+        status: FoodStatus.failure,
         errorMessage: error.message,
       ),
       (data) => emit(
         state.copyWith(
-          status: CategoryStatus.success,
+          status: FoodStatus.success,
           foods: data,
         ),
       ),
