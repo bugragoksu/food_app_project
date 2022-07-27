@@ -37,7 +37,7 @@ class FoodServiceImpl extends FoodService {
     // return dio.get('foods/$categoryId');
 
     // return fake json
-    final String response = await rootBundle.loadString('assets/foods.json');
+    final String response = await rootBundle.loadString('assets/food_$categoryId.json');
     final data = await json.decode(response);
     return Response(
       data: data,
