@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_app_project/domain/food/entity/category.dart';
 import 'package:food_app_project/injection.dart';
 import 'package:food_app_project/presentation/pages/food/categories/cubit/category_cubit.dart';
+import 'package:food_app_project/presentation/pages/food/widgets/card_list.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
@@ -37,15 +37,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   child: CircularProgressIndicator(),
                 );
               } else if (state.status == CategoryStatus.success) {
-                return GridView.builder(
-                  itemCount: state.categories!.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                  ),
-                  itemBuilder: (context, index) => _CategoryCard(
-                    category: state.categories![index],
-                  ),
+                return CardList(
+                  mode: CardListMode.categoryList,
+                  itemList: state.categories!,
                 );
               } else if (state.status == CategoryStatus.failure) {
                 return Center(
@@ -56,54 +50,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             },
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _CategoryCard extends StatelessWidget {
-  const _CategoryCard({
-    Key? key,
-    required this.category,
-  }) : super(key: key);
-  final Category category;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(16),
-            child: Image.network(
-              category.imageUrl,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Positioned.fill(
-            bottom: 10,
-            left: 10,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Expanded(
-                  child: Text(
-                    category.name,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
