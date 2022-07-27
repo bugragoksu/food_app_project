@@ -33,11 +33,10 @@ class FoodCubit extends Cubit<FoodState> {
   }
 
   void addBasket({required BasketItem item}) {
-    try {
-      final itemInBasket = state.basket.firstWhere((element) => element == item);
-      itemInBasket.count++;
-      return emit(state.copyWith(basket: [itemInBasket, ...state.basket]));
-    } catch (e) {
+    final itemIndex = state.basket.indexOf(item);
+    if (itemIndex != -1) {
+      state.basket[itemIndex].count++;
+    } else {
       return emit(state.copyWith(basket: [item, ...state.basket]));
     }
   }
