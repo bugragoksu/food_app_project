@@ -13,13 +13,13 @@ class FoodState extends Equatable {
   const FoodState.initial() : this._();
 
   final List<Food>? foods;
-  final List<Food> basket;
+  final List<BasketItem> basket;
   final FoodStatus status;
   final String? errorMessage;
 
   FoodState copyWith({
     List<Food>? foods,
-    List<Food> basket = const [],
+    List<BasketItem> basket = const [],
     FoodStatus? status,
     String? errorMessage,
   }) =>

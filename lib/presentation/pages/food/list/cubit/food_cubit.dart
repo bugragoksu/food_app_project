@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:food_app_project/domain/food/entity/basket_item.dart';
 import 'package:food_app_project/domain/food/entity/food.dart';
 import 'package:food_app_project/domain/food/food_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -28,8 +29,8 @@ class FoodCubit extends Cubit<FoodState> {
       ),
     );
 
-    void addBasket({required Food food}) {
-      return emit(state.copyWith(basket: [food, ...state.basket]));
+    void addBasket({required BasketItem item}) {
+      return emit(state.copyWith(basket: [item, ...state.basket]));
     }
 
     void clearBasket() {
