@@ -31,7 +31,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i7.FoodRepositoryImpl(get<_i5.FoodDataSource>()));
   gh.factory<_i8.CategoryCubit>(
       () => _i8.CategoryCubit(get<_i6.FoodRepository>()));
-  gh.factory<_i9.FoodCubit>(() => _i9.FoodCubit(get<_i6.FoodRepository>()));
+  gh.singleton<_i9.FoodCubit>(_i9.FoodCubit(get<_i6.FoodRepository>()));
   return get;
 }
 

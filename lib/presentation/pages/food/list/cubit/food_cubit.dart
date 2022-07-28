@@ -7,9 +7,11 @@ import 'package:injectable/injectable.dart';
 
 part 'food_state.dart';
 
-@injectable
+@singleton
 class FoodCubit extends Cubit<FoodState> {
-  FoodCubit(this._foodRepository) : super(const FoodState.initial());
+  FoodCubit(
+    this._foodRepository,
+  ) : super(const FoodState.initial());
 
   final FoodRepository _foodRepository;
 
@@ -34,14 +36,23 @@ class FoodCubit extends Cubit<FoodState> {
 
   void addBasket({required BasketItem item}) {
     final itemIndex = state.basket.indexOf(item);
-    if (itemIndex != -1) {
-      state.basket[itemIndex].count++;
-    } else {
+    if (itemIndex == -1) {
       return emit(state.copyWith(basket: [item, ...state.basket]));
+    } else {
+      state.basket[itemIndex].count++;
+      return emit(state);
     }
   }
 
   void clearBasket() {
     return emit(state.copyWith(basket: []));
+  }
+
+  String get basketTotal {
+    double total = 0;
+    for (var element in state.basket) {
+      total += element.food.price;
+    }
+    return (total.toStringAsFixed(2) + state.basket.first.food.currency);
   }
 }

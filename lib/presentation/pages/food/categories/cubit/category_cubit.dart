@@ -16,9 +16,11 @@ class CategoryCubit extends Cubit<CategoryState> {
     emit(state.copyWith(status: CategoryStatus.loading));
     final result = await _foodRepository.getCategories();
     result.fold(
-      (error) => state.copyWith(
-        status: CategoryStatus.failure,
-        errorMessage: error.message,
+      (error) => emit(
+        state.copyWith(
+          status: CategoryStatus.failure,
+          errorMessage: error.message,
+        ),
       ),
       (data) => emit(
         state.copyWith(

@@ -21,48 +21,53 @@ class CardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: itemList.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 10,
-      ),
-      itemBuilder: (context, index) {
-        if (mode == CardListMode.categoryList) {
-          final model = itemList as List<Category>;
-          return _CardItem(
-            mode: mode,
-            id: model[index].id,
-            imageUrl: model[index].imageUrl,
-            title: model[index].name,
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => FoodListScreen(
-                  categoryId: model[index].id,
-                  categoryName: model[index].name,
-                ),
-              ),
-            ),
-          );
-        } else {
-          final model = itemList as List<Food>;
-          return _CardItem(
-            mode: mode,
-            id: model[index].id,
-            imageUrl: model[index].imageUrl,
-            title: model[index].title,
-            price: model[index].price.toString() + model[index].currency,
-            onTap: () {
-              BlocProvider.of<FoodCubit>(context).addBasket(item: BasketItem(food: model[index]));
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Item added to basket.'),
-                  duration: Duration(seconds: 1),
+    return BlocBuilder<FoodCubit, FoodState>(
+      bloc: getIt.get<FoodCubit>(),
+      builder: (context, state) {
+        return GridView.builder(
+          itemCount: itemList.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+          ),
+          itemBuilder: (_, index) {
+            if (mode == CardListMode.categoryList) {
+              final model = itemList as List<Category>;
+              return _CardItem(
+                mode: mode,
+                id: model[index].id,
+                imageUrl: model[index].imageUrl,
+                title: model[index].name,
+                onTap: () => Navigator.of(_).push(
+                  MaterialPageRoute(
+                    builder: (_) => FoodListScreen(
+                      categoryId: model[index].id,
+                      categoryName: model[index].name,
+                    ),
+                  ),
                 ),
               );
-            },
-          );
-        }
+            } else {
+              final model = itemList as List<Food>;
+              return _CardItem(
+                mode: mode,
+                id: model[index].id,
+                imageUrl: model[index].imageUrl,
+                title: model[index].title,
+                price: model[index].price.toString() + model[index].currency,
+                onTap: () {
+                  getIt.get<FoodCubit>().addBasket(item: BasketItem(food: model[index]));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Item added to basket.'),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
+                },
+              );
+            }
+          },
+        );
       },
     );
   }
