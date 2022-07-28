@@ -1,16 +1,28 @@
-# food_app_project
+# Food Delivery Project
 
-A new Flutter project.
+A Food Delivery Project developed with Flutter
 
-## Getting Started
+## Features
+ * Clean Architecture
+ * BLoC (for state management)
+ * JsonSerializable (for model serialization)
+ * get_it (for dependecy injection)
+ * injectable (for generating get_it configuration file)
+ * dio (for network requests)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<table>
+    <tr>
+        <td><img src="assets/screenshots/category.png" width="300"></td>
+        <td><img src="assets/screenshots/food.png" width="300"></td>
+         <td><img src="assets/screenshots/basket.png" width="300"></td>
+    </tr>
+</table>
+
+
+
+## 🤓 Author
+**Buğra Göksu** [![Twitter Follow](https://img.shields.io/twitter/follow/bugragoksu.svg?style=social)](https://twitter.com/bugragoksu)
